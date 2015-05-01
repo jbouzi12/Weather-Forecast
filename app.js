@@ -27,16 +27,20 @@ weatherApp.service('cityService', function() {
 
 });
 
-weatherApp.controller('homeController', ['$scope' 'cityService', function($scope, cityService) {
+weatherApp.controller('homeController', ['$scope', 'cityService', function($scope, cityService) {
 
-	$scope.cityName = "";
+	$scope.cityName = cityService.city;
+
+	$scope.$watch('city', function() {
+		cityService.city = $scope.city;
+	})
 
 
 }]);
 
 weatherApp.controller('forecastController', ['$scope','cityService', function($scope, cityService) {
 
-	$scope.cityName = "";
+	$scope.cityName = cityService.city;
 
 
 }]);
