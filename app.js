@@ -19,15 +19,24 @@ weatherApp.config(function($routeProvider) {
 
 });
 
-weatherApp.controller('homeController', ['$scope', function($scope) {
 
+weatherApp.service('forecastService', function() {
 
+	var self = this;
+	this.cityName = ""''
+
+});
+
+weatherApp.controller('homeController', ['$scope' 'forecastService', function($scope, forecastService) {
+
+	$scope.cityName = "";
 
 
 }]);
 
-weatherApp.controller('forecastController', ['$scope', function($scope) {
+weatherApp.controller('forecastController', ['$scope','forecastService', function($scope, forecastService) {
 
+	$scope.cityName = "";
 
 
 }]);
