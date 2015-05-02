@@ -63,5 +63,11 @@ weatherApp.controller('forecastController', ['$scope', '$resource','cityService'
 
 	}
 
+	$scope.formatDate = function(dt) {
+
+		return new Date(dt * 1000); 
+
+	}
+
 
 }]);
