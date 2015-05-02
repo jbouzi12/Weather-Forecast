@@ -1,4 +1,8 @@
-forecast for {{ city }}
+Forecast for {{ city }}
+<hr />
+Days<a ng-repeat="duration in forecastOptions" href="#/forecast/{{duration}}">: {{ duration }} </a>  
+
+<hr />
 
 <section ng-repeat="w in weatherResult.list">
 	<div class="row">
