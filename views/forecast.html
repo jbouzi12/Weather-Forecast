@@ -1,7 +1,16 @@
+<a href="#/">Back to search</a>
+<h2>
 Forecast for {{ city }}
+
+</h2>
 <hr />
 Days<a ng-repeat="duration in forecastOptions" href="#/forecast/{{duration}}">: {{ duration }} </a>  
 
+
+<!-- TODO: -->
+
+<!-- Make above functionality work with routeParams -->
+<!-- Add weather images from api -->
 <hr />
 
 <section ng-repeat="w in weatherResult.list">
