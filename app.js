@@ -48,7 +48,7 @@ weatherApp.controller('forecastController', ['$scope', '$resource', '$routeParam
 
 	$scope.city = cityService.city;
 
-	$scope.days = $routeParams.days;
+	$scope.days = $routeParams.days || '2';
 
 	$scope.forecastOptions = ['2', '5', '7'];
 
@@ -60,9 +60,9 @@ weatherApp.controller('forecastController', ['$scope', '$resource', '$routeParam
 
 	$scope.weatherResult = $scope.weatherAPI.get( { q: $scope.city, cnt: $scope.days, APPID: apiKey});
 	
-	console.log($scope.weatherResult);
-
 	$scope.city = cityService.city;
+
+	// Conversion & Formatting functions
 
 	$scope.convertToFahrenheit = function(degK) {
 
