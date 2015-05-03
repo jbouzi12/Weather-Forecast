@@ -1,3 +1,10 @@
 html, body, input, select, textarea {
 	font-size: 1.05em !important;
 }
+
+.api-map {
+	width: 800px;
+	height: 500px;
+	background-color: blue;
+	padding-bottom: 2em;
+}
