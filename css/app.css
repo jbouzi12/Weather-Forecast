@@ -1,10 +1,11 @@
 html, body, input, select, textarea {
 	font-size: 1.05em !important;
 }
-
-.api-map {
+  body { height: 100%; width:100%;margin: 0px; padding: 0px }
+  /*#map_canvas { height: 100% }*/
+#map-canvas {
 	width: 800px;
 	height: 500px;
-	background-color: blue;
+	/*background-color: blue;*/
 	padding-bottom: 2em;
 }

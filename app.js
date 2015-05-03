@@ -52,13 +52,21 @@ weatherApp.controller('forecastController', ['$scope', '$resource', '$routeParam
 
 	$scope.forecastOptions = ['2', '5', '7'];
 
+	// API keys
+
+	var apiKeys = {
+		weather: "c5619901934de5840a17ad7d6082c1ac",
+		googleMaps:"AIzaSyCkBT0waDLawGUaAE6vwT_hxDHS2SJMw-g"
+
+	};
+
 	// Weather API
 
-	var apiKey = "c5619901934de5840a17ad7d6082c1ac";
+	var weatherApiKey = "c5619901934de5840a17ad7d6082c1ac";
 
     $scope.weatherAPI = $resource("http://api.openweathermap.org/data/2.5/forecast/daily", { callback: "JSON_CALLBACK" }, { get: { method: "JSONP" }});
 
-	$scope.weatherResult = $scope.weatherAPI.get( { q: $scope.city, cnt: $scope.days, APPID: apiKey});
+	$scope.weatherResult = $scope.weatherAPI.get( { q: $scope.city, cnt: $scope.days, APPID: weatherApiKey});
 	
 	$scope.city = cityService.city;
 
