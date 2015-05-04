@@ -1,3 +1,9 @@
 html, body, input, select, textarea {
 	font-size: 1.05em !important;
 }
+
+body {
+	background-image: url('../imgs/sunny-sunset.jpg');
+	background-size: cover;
+	background-repeat: none;
+}

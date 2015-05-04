@@ -60,6 +60,7 @@ weatherApp.controller('forecastController', ['$scope', '$resource', '$routeParam
 
 	$scope.weatherResult = $scope.weatherAPI.get( { q: $scope.city, cnt: $scope.days, APPID: apiKey});
 
+	console.log($scope.weatherResult);
 	// TESTING CHART
 
 	// $scope.jsonurl = $resource("http://openweathermap.org/data/2.1/history/city/?id=524901&cnt=80", {
