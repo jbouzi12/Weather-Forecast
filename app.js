@@ -59,10 +59,15 @@ weatherApp.controller('forecastController', ['$scope', '$resource', '$routeParam
     $scope.weatherAPI = $resource("http://api.openweathermap.org/data/2.5/forecast/daily", { callback: "JSON_CALLBACK" }, { get: { method: "JSONP" }});
 
 	$scope.weatherResult = $scope.weatherAPI.get( { q: $scope.city, cnt: $scope.days, APPID: apiKey});
-	
-	console.log($scope.weatherResult);
 
-	$scope.city = cityService.city;
+	// TESTING CHART
+
+	// $scope.jsonurl = $resource("http://openweathermap.org/data/2.1/history/city/?id=524901&cnt=80", {
+	// 	callback:"JSON_CALLBACK"}, {get:{method:"JSONP"}});
+
+	// $scope.sampleChart = $scope.jsonurl.get(jsonurl, getData).error(errorHandler);
+	
+	// Format & Conversion Methods
 
 	$scope.convertToFahrenheit = function(degK) {
 
