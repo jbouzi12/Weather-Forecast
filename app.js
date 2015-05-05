@@ -8,17 +8,23 @@ weatherApp.config(function($routeProvider) {
 
 	.when('/', {
 		templateUrl:"views/home.html",
-		controller:"homeController"
+		controller:"homeController",
+		controllerAs:"home"
 
 	})
 	.when('/forecast', {
 		templateUrl:"views/forecast.html",
-		controller:"forecastController"
+		controller:"forecastController",
+		controllerAs:"forecast"
 
 	})
 	.when('/forecast/:days', {
 		templateUrl:"views/forecast.html",
-		controller:"forecastController"
+		controller:"forecastController",
+		controllerAs:"forecast"
+	})
+	.otherwise({
+		redirectTo:'/'
 	})
 });
 
