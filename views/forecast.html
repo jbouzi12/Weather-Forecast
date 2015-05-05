@@ -18,17 +18,15 @@ Days<a ng-repeat="duration in forecastOptions" href="#/forecast/{{duration}}">: 
 
 <section ng-repeat="w in weatherResult.list">
 	<div class="row">
-		<div class="col-md-12">
-			<div class="panel panel-default">
-				<div class="panel-heading">
-					<h3 class="panel-heading">
+		<div class="col-sm-6 col-md-4">
+			<div class="thumbnail">
+				
+				<div class="caption">
+					<h3>
 						{{ formatDate(w.dt) | date: format : timezone }}
 					</h3>
-				</div>
-				<div class="panel-body">
-					Daytime temperature: {{ convertToFahrenheit(w.temp.day) }}<span>&deg;</span>
-				</div>
+					<p>Daytime temperature: {{ convertToFahrenheit(w.temp.day) }}<span>&deg;</span></p>
+				</div>				
 			</div>
-		</div>
 	</div>
 </section>
