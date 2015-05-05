@@ -72,6 +72,10 @@ weatherApp.controller('homeController', ['$scope', '$location', 'cityService', f
 	
 	});
 
+	// this.searchCity = function(new_city) {
+	// 	cityService.city = new_city;
+	// };
+
 	$scope.getForecast = function() {
 		$location.path("/forecast");
 	}
