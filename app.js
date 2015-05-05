@@ -64,19 +64,19 @@ weatherApp.service('forecastService', ['$resource',function($resource) {
 
 weatherApp.controller('homeController', ['$scope', '$location', 'cityService', function($scope, $location, cityService) {
 
-	$scope.city = cityService.city;
+	this.city = cityService.city;
 
-	$scope.$watch('city', function() {
+	// $scope.$watch('city', function() {
 
-		cityService.city = $scope.city;
+	// 	cityService.city = $scope.city;
 	
-	});
+	// });
 
-	// this.searchCity = function(new_city) {
-	// 	cityService.city = new_city;
-	// };
+	this.searchCity = function(new_city) {
+		cityService.city = new_city;
+	};
 
-	$scope.getForecast = function() {
+	this.getForecast = function() {
 		$location.path("/forecast");
 	}
 
