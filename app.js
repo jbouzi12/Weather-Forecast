@@ -28,6 +28,7 @@ weatherApp.config(function($routeProvider) {
 	})
 });
 
+// Services
 
 weatherApp.service('cityService', function() {
 
@@ -49,6 +50,13 @@ weatherApp.service('forecastService', ['$resource',function($resource) {
 
 		
 	};
+
+		// TESTING CHART
+
+	// $scope.jsonurl = $resource("http://openweathermap.org/data/2.1/history/city/?id=524901&cnt=80", {
+	// 	callback:"JSON_CALLBACK"}, {get:{method:"JSONP"}});
+
+	// $scope.sampleChart = $scope.jsonurl.get(jsonurl, getData).error(errorHandler);
 
 }]);
 
@@ -79,12 +87,7 @@ weatherApp.controller('forecastController', ['$scope', '$routeParams','cityServi
 	$scope.forecastOptions = ['2', '5', '7'];
 
 	$scope.weatherResult = forecastService.getWeather($scope.city, $scope.days)
-	// TESTING CHART
 
-	// $scope.jsonurl = $resource("http://openweathermap.org/data/2.1/history/city/?id=524901&cnt=80", {
-	// 	callback:"JSON_CALLBACK"}, {get:{method:"JSONP"}});
-
-	// $scope.sampleChart = $scope.jsonurl.get(jsonurl, getData).error(errorHandler);
 	
 	// Format & Conversion Methods
 
