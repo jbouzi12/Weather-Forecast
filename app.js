@@ -78,15 +78,7 @@ weatherApp.controller('forecastController', ['$scope', '$routeParams','cityServi
 
 	$scope.forecastOptions = ['2', '5', '7'];
 
-	// Weather API
-
-	var apiKey = "c5619901934de5840a17ad7d6082c1ac";
-
-    $scope.weatherAPI = $resource("http://api.openweathermap.org/data/2.5/forecast/daily", { callback: "JSON_CALLBACK" }, { get: { method: "JSONP" }});
-
-	$scope.weatherResult = $scope.weatherAPI.get( { q: $scope.city, cnt: $scope.days, APPID: apiKey});
-
-	console.log($scope.weatherResult);
+	$scope.weatherResult = forecastService.getWeather($scope.city, $scope.days)
 	// TESTING CHART
 
 	// $scope.jsonurl = $resource("http://openweathermap.org/data/2.1/history/city/?id=524901&cnt=80", {
