@@ -34,8 +34,17 @@ body {
 
 .left.temp {
 	font-size: 3.5em;
+	margin-left: .5em;
+	margin-right: 1em;
 }
 #sub {
 	font-size: .2em;
 	margin-top: -.7em;
+}
+.caption h3 {
+	font-size: 2.5em;
+}
+.caption h3 p {
+	font-size: .6em;
+	margin-top: -.2em;
 }
