@@ -34,23 +34,20 @@ angular.module("weatherApp", ['ngRoute', 'ngResource'])
 
 	this.city = "New York, NY";
 
-});
+})
 
 .factory('weatherForecast', ['$resource',function weatherForecastFactory($resource) {
 
-
 	var apiKey = "c5619901934de5840a17ad7d6082c1ac";
 
-	this.getWeather = function(city, days) {
-
-	    var weatherAPI = $resource("http://api.openweathermap.org/data/2.5/forecast/daily", { callback: "JSON_CALLBACK" }, { get: { method: "JSONP" }});
-
-		return weatherAPI.get( { q: city, cnt: days, APPID: apiKey});
-
-		
-	};
-
-		// TESTING CHART
+    var weatherAPI = $resource("http://api.openweathermap.org/data/2.5/forecast/daily", { callback: "JSON_CALLBACK" }, { get: { method: "JSONP" }});
+	
+	return {
+		getWeather:function(city, days) {
+			return weatherAPI.get( { q:city, cnt: days, APPID: apiKey})
+		}
+	};		
+	// TESTING CHART
 
 	// $scope.jsonurl = $resource("http://openweathermap.org/data/2.1/history/city/?id=524901&cnt=80", {
 	// 	callback:"JSON_CALLBACK"}, {get:{method:"JSONP"}});
@@ -81,9 +78,9 @@ angular.module("weatherApp", ['ngRoute', 'ngResource'])
 		$location.path("/forecast");
 	}
 
-}]);
+}])
 
-.controller('forecastController', ['$scope', '$routeParams','cityService','forecastService', function($scope, $routeParams, cityService, forecastService) {
+.controller('forecastController', ['$scope', '$routeParams','cityService','weatherForecast', function($scope, $routeParams, cityService, weatherForecast) {
 
 	this.city = cityService.city;
 
@@ -91,7 +88,7 @@ angular.module("weatherApp", ['ngRoute', 'ngResource'])
 
 	this.options = ['2', '5', '7'];
 
-	this.weatherResult = forecastService.getWeather(this.city, this.days)
+	this.weatherResult = weatherForecast.getWeather(this.city, this.days)
 
 	
 	// Conversion & Formatting functions
