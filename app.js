@@ -90,18 +90,32 @@ angular.module("weatherApp", ['ngRoute', 'ngResource'])
 
 .controller('forecastController', ['$scope', '$routeParams','cityService','weatherForecast', function($scope, $routeParams, cityService, weatherForecast) {
 
-	this.city = cityService.city;
+	var self = this; 
 
-	this.days = $routeParams.days || '2';
+	self.city = cityService.city;
 
-	this.options = ['2', '5', '7'];
+	self.isF = true;
 
-	this.weatherResult = weatherForecast.getWeather(this.city, this.days)
+	self.days = $routeParams.days || '2';
 
-	console.log(this.weatherResult);
+	self.options = ['2', '5', '7'];
+
+	self.weatherResult = weatherForecast.getWeather(self.city, self.days)
+
+	console.log(self.weatherResult);
 	// Conversion & Formatting functions
 
-	this.convertToFahrenheit = function(degK) {
+	self.convertToCelsius = function(degK) {
+
+		self.isF = false;
+
+		return Math.round(degK - 273);
+
+	}
+
+	self.convertToFahrenheit = function(degK) {
+
+		self.isF = true;
 
 		return Math.round(1.8*(degK - 273) + 32);
 
