@@ -1,15 +1,6 @@
 html, body, input, select, textarea {
 	font-size: 1.05em !important;
 }
-<<<<<<< HEAD
-  body { height: 100%; width:100%;margin: 0px; padding: 0px }
-  /*#map_canvas { height: 100% }*/
-#map-canvas {
-	width: 800px;
-	height: 500px;
-	/*background-color: blue;*/
-	padding-bottom: 2em;
-=======
 
 body {
 	background-image: url('../imgs/sunny-sunset.jpg');
@@ -29,5 +20,4 @@ body {
 
 #heading a:hover {
 	color: rgb(40, 40, 40); 
->>>>>>> f60cd21cd244069f3d69747846e05feb96e3f0e6
 }

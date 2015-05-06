@@ -65,18 +65,18 @@ weatherApp.service('forecastService', ['$resource',function($resource) {
 weatherApp.controller('homeController', ['$scope', '$location', 'cityService', function($scope, $location, cityService) {
 
 	 // TODO: may need to remove city service, seems unnecessary
+	var self = this;
+	self.city = cityService.city;
 
-	this.city = cityService.city;
+	$scope.$watch('city', function() {
 
-	// $scope.$watch('city', function() {
-
-	// 	cityService.city = $scope.city;
+		cityService.city = self.city;
 	
-	// });
+	});
 
-	this.searchCity = function(new_city) {
-		cityService.city = new_city;
-	};
+	// this.searchCity = function(new_city) {
+	// 	cityService.city = new_city;
+	// };
 
 	this.getForecast = function() {
 		$location.path("/forecast");
