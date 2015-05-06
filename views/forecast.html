@@ -1,6 +1,6 @@
 <a href="#/">Back to search</a>
 <h2>
-Forecast for {{ city }}
+Forecast for {{ this.city }}
 
 </h2>
 <hr />
@@ -30,6 +30,7 @@ Days<a ng-repeat="duration in forecast.options" href="#/forecast/{{duration}}">:
 						{{ forecast.formatDate(w.dt) | date: format : timezone }}
 					</h3>
 					<p>Daytime temperature: {{ forecast.convertToFahrenheit(w.temp.day) }}<span>&deg;</span></p>
+					<p>{{ w.weather[0].description }}</p>
 				</div>				
 			</div>
 	</div>

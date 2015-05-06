@@ -98,7 +98,7 @@ angular.module("weatherApp", ['ngRoute', 'ngResource'])
 
 	this.weatherResult = weatherForecast.getWeather(this.city, this.days)
 
-	
+	console.log(this.weatherResult);
 	// Conversion & Formatting functions
 
 	this.convertToFahrenheit = function(degK) {
