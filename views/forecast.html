@@ -28,10 +28,11 @@ Days<a ng-repeat="duration in forecast.options" href="#/forecast/{{duration}}">:
 				<div class="caption">
 
 						<h2 class="left temp">
-							{{ forecast.convertToFahrenheit(w.temp.day) }}<span>&deg;</span><br/>
+							{{ forecast.convertToFahrenheit(w.temp.day) }}<span>&deg;</span>
 							<p id="sub">{{ w.weather[0].description }}</p>
 						</h2>
 					<h3>
+						<!-- <p>{{forecast.formatDate(w.dt) | date:'MMM' }}</p> -->
 						{{ forecast.formatDate(w.dt) | date:'dd' }}
 						<p>{{ forecast.formatDate(w.dt) | date: 'EEE' }}</p>
 					</h3> 

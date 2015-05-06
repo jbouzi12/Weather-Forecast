@@ -36,6 +36,10 @@ body {
 	font-size: 3.5em;
 	margin-left: .5em;
 	margin-right: 1em;
+	color: (0, 0, 0, 0.25) !important;
+}
+.left.temp span {
+	color: rgba(32, 203, 255, 0.42);
 }
 #sub {
 	font-size: .2em;
