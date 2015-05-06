@@ -40,11 +40,14 @@ body {
 #sub {
 	font-size: .2em;
 	margin-top: -.7em;
+	color: rgb(255, 72, 97);
 }
 .caption h3 {
 	font-size: 2.5em;
+	color: rgba(32, 203, 255, 0.42);
 }
 .caption h3 p {
 	font-size: .6em;
 	margin-top: -.2em;
+	color: rgba(32, 203, 255, 0.75);
 }
