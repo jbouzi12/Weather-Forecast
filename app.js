@@ -1,8 +1,8 @@
 // MODULE
 
-var weatherApp = angular.module("weatherApp", ['ngRoute', 'ngResource']);
+angular.module("weatherApp", ['ngRoute', 'ngResource'])
 
-weatherApp.config(function($routeProvider) {
+.config(function($routeProvider) {
 
 	$routeProvider
 
@@ -26,19 +26,18 @@ weatherApp.config(function($routeProvider) {
 	.otherwise({
 		redirectTo:'/'
 	})
-});
+})
 
 // Services
 
-weatherApp.service('cityService', function() {
+.service('cityService', function() {
 
 	this.city = "New York, NY";
 
 });
 
-weatherApp.service('forecastService', ['$resource',function($resource) {
+.factory('weatherForecast', ['$resource',function weatherForecastFactory($resource) {
 
-	var self = this;
 
 	var apiKey = "c5619901934de5840a17ad7d6082c1ac";
 
@@ -58,11 +57,11 @@ weatherApp.service('forecastService', ['$resource',function($resource) {
 
 	// $scope.sampleChart = $scope.jsonurl.get(jsonurl, getData).error(errorHandler);
 
-}]);
+}])
 
 // Controllers
 
-weatherApp.controller('homeController', ['$scope', '$location', 'cityService', function($scope, $location, cityService) {
+.controller('homeController', ['$scope', '$location', 'cityService', function($scope, $location, cityService) {
 
 	 // TODO: may need to remove city service, seems unnecessary
 	var self = this;
@@ -84,7 +83,7 @@ weatherApp.controller('homeController', ['$scope', '$location', 'cityService', f
 
 }]);
 
-weatherApp.controller('forecastController', ['$scope', '$routeParams','cityService','forecastService', function($scope, $routeParams, cityService, forecastService) {
+.controller('forecastController', ['$scope', '$routeParams','cityService','forecastService', function($scope, $routeParams, cityService, forecastService) {
 
 	this.city = cityService.city;
 
