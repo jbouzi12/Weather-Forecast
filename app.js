@@ -1,5 +1,12 @@
 // MODULE
 
+// TODO:
+// - Create method for celcius conversion
+// - Use ng-show/ng-click for 'f'&'c' buttons
+// - create factory to serve as directory of weather images
+	// - based on clouds '#' of forecast, 
+	// 	 return that specific url for thumbnail
+
 angular.module("weatherApp", ['ngRoute', 'ngResource'])
 
 .config(function($routeProvider) {
