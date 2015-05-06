@@ -6,6 +6,7 @@
 // - create factory to serve as directory of weather images
 	// - based on clouds '#' of forecast, 
 	// 	 return that specific url for thumbnail
+// - Add min/max temperature
 
 angular.module("weatherApp", ['ngRoute', 'ngResource'])
 
