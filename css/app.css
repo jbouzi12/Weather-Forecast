@@ -1,3 +1,23 @@
 html, body, input, select, textarea {
 	font-size: 1.05em !important;
 }
+
+body {
+	background-image: url('../imgs/sunny-sunset.jpg');
+	background-size: cover;
+	background-repeat: none;
+}
+
+#heading {
+	background-color: rgba(255, 255, 249, 0.45);
+	border: none;
+}
+
+#heading a {
+	color: white;
+	font-size: 1.25em;
+}
+
+#heading a:hover {
+	color: rgb(40, 40, 40); 
+}

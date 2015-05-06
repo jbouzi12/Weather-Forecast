@@ -8,20 +8,27 @@ weatherApp.config(function($routeProvider) {
 
 	.when('/', {
 		templateUrl:"views/home.html",
-		controller:"homeController"
+		controller:"homeController",
+		controllerAs:"home"
 
 	})
 	.when('/forecast', {
 		templateUrl:"views/forecast.html",
-		controller:"forecastController"
+		controller:"forecastController",
+		controllerAs:"forecast"
 
 	})
 	.when('/forecast/:days', {
 		templateUrl:"views/forecast.html",
-		controller:"forecastController"
+		controller:"forecastController",
+		controllerAs:"forecast"
+	})
+	.otherwise({
+		redirectTo:'/'
 	})
 });
 
+// Services
 
 weatherApp.service('cityService', function() {
 
@@ -29,40 +36,66 @@ weatherApp.service('cityService', function() {
 
 });
 
-// Controllers
+weatherApp.service('forecastService', ['$resource',function($resource) {
 
-weatherApp.controller('homeController', ['$scope', 'cityService', function($scope, cityService) {
-
-	$scope.city = cityService.city;
-
-	$scope.$watch('city', function() {
-
-		cityService.city = $scope.city;
-	
-	});
-
-
-}]);
-
-weatherApp.controller('forecastController', ['$scope', '$resource', '$routeParams','cityService', function($scope, $resource, $routeParams, cityService) {
-
-	$scope.city = cityService.city;
-
-	$scope.days = $routeParams.days;
-
-	$scope.forecastOptions = ['2', '5', '7'];
-
-	// Weather API
+	var self = this;
 
 	var apiKey = "c5619901934de5840a17ad7d6082c1ac";
 
-    $scope.weatherAPI = $resource("http://api.openweathermap.org/data/2.5/forecast/daily", { callback: "JSON_CALLBACK" }, { get: { method: "JSONP" }});
+	this.getWeather = function(city, days) {
 
-	$scope.weatherResult = $scope.weatherAPI.get( { q: $scope.city, cnt: 2, APPID: apiKey});
+	    var weatherAPI = $resource("http://api.openweathermap.org/data/2.5/forecast/daily", { callback: "JSON_CALLBACK" }, { get: { method: "JSONP" }});
+
+		return weatherAPI.get( { q: city, cnt: days, APPID: apiKey});
+
+		
+	};
+
+		// TESTING CHART
+
+	// $scope.jsonurl = $resource("http://openweathermap.org/data/2.1/history/city/?id=524901&cnt=80", {
+	// 	callback:"JSON_CALLBACK"}, {get:{method:"JSONP"}});
+
+	// $scope.sampleChart = $scope.jsonurl.get(jsonurl, getData).error(errorHandler);
+
+}]);
+
+// Controllers
+
+weatherApp.controller('homeController', ['$scope', '$location', 'cityService', function($scope, $location, cityService) {
+
+	 // TODO: may need to remove city service, seems unnecessary
+
+	this.city = cityService.city;
+
+	// $scope.$watch('city', function() {
+
+	// 	cityService.city = $scope.city;
 	
-	console.log($scope.weatherResult);
+	// });
+
+	this.searchCity = function(new_city) {
+		cityService.city = new_city;
+	};
+
+	this.getForecast = function() {
+		$location.path("/forecast");
+	}
+
+}]);
+
+weatherApp.controller('forecastController', ['$scope', '$routeParams','cityService','forecastService', function($scope, $routeParams, cityService, forecastService) {
 
 	$scope.city = cityService.city;
+
+	$scope.days = $routeParams.days || '2';
+
+	$scope.forecastOptions = ['2', '5', '7'];
+
+	$scope.weatherResult = forecastService.getWeather($scope.city, $scope.days)
+
+	
+	// Format & Conversion Methods
 
 	$scope.convertToFahrenheit = function(degK) {
 
