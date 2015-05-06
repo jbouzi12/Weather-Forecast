@@ -26,12 +26,17 @@ Days<a ng-repeat="duration in forecast.options" href="#/forecast/{{duration}}">:
 			<div class="thumbnail">
 				<img src="http://openweathermap.org/img/w/{{w.weather[0].icon}}" />
 				<div class="caption">
+
+						<h2 class="left temp">
+							{{ forecast.convertToFahrenheit(w.temp.day) }}<span>&deg;</span><br/>
+							<p id="sub">{{ w.weather[0].description }}</p>
+						</h2>
+				</div>
 					<h3>
-						{{ forecast.formatDate(w.dt) | date: format : timezone }}
-					</h3>
-					<p>Day: {{ forecast.convertToFahrenheit(w.temp.day) }}<span>&deg;</span></p>
-					<p>Night: {{ forecast.convertToFahrenheit(w.temp.eve) }}<span>&deg;</span></p>
-					<p>{{ w.weather[0].description }}</p>
+						{{ forecast.formatDate(w.dt) | date: 'EEE' }}
+					</h3> 
+					<h3>{{ forecast.formatDate(w.dt) | date:'d' }}</h3>
+					<!-- <p>Day: {{ forecast.convertToFahrenheit(w.temp.day) }}<span>&deg;</span></p> -->
 				</div>				
 			</div>
 	</div>

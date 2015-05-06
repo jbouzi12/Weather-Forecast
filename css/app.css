@@ -21,3 +21,21 @@ body {
 #heading a:hover {
 	color: rgb(40, 40, 40); 
 }
+.forecast.temp {
+	background-color: white;
+}
+.left {
+	float: left;
+}
+
+.right {
+	float: right;
+}
+
+.left.temp {
+	font-size: 3.5em;
+}
+#sub {
+	font-size: .2em;
+	margin-top: -.7em;
+}
