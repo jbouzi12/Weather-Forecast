@@ -86,24 +86,24 @@ weatherApp.controller('homeController', ['$scope', '$location', 'cityService', f
 
 weatherApp.controller('forecastController', ['$scope', '$routeParams','cityService','forecastService', function($scope, $routeParams, cityService, forecastService) {
 
-	$scope.city = cityService.city;
+	this.city = cityService.city;
 
-	$scope.days = $routeParams.days || '2';
+	this.days = $routeParams.days || '2';
 
-	$scope.forecastOptions = ['2', '5', '7'];
+	this.options = ['2', '5', '7'];
 
-	$scope.weatherResult = forecastService.getWeather($scope.city, $scope.days)
+	this.weatherResult = forecastService.getWeather(this.city, this.days)
 
 	
 	// Conversion & Formatting functions
 
-	$scope.convertToFahrenheit = function(degK) {
+	this.convertToFahrenheit = function(degK) {
 
 		return Math.round(1.8*(degK - 273) + 32);
 
 	}
 
-	$scope.formatDate = function(dt) {
+	this.formatDate = function(dt) {
 
 		return new Date(dt * 1000); 
 

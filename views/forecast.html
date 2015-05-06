@@ -4,7 +4,7 @@ Forecast for {{ city }}
 
 </h2>
 <hr />
-Days<a ng-repeat="duration in forecastOptions" href="#/forecast/{{duration}}">: {{ duration }} </a>  
+Days<a ng-repeat="duration in forecast.options" href="#/forecast/{{duration}}">: {{ duration }} </a>  
 
 
 <!-- TODO: -->
@@ -16,20 +16,20 @@ Days<a ng-repeat="duration in forecastOptions" href="#/forecast/{{duration}}">: 
 	{{ sampleChart }}
 </div> -->
 
-<section id="map-canvas">
+<!-- <section id="map-canvas">
 
 </section>
-
-<section ng-repeat="w in weatherResult.list">
+ -->
+<section ng-repeat="w in forecast.weatherResult.list">
 	<div class="col">
 		<div class="col-sm-6 col-md-4">
 			<div class="thumbnail">
 				<img src="#" />
 				<div class="caption">
 					<h3>
-						{{ formatDate(w.dt) | date: format : timezone }}
+						{{ forecast.formatDate(w.dt) | date: format : timezone }}
 					</h3>
-					<p>Daytime temperature: {{ convertToFahrenheit(w.temp.day) }}<span>&deg;</span></p>
+					<p>Daytime temperature: {{ forecast.convertToFahrenheit(w.temp.day) }}<span>&deg;</span></p>
 				</div>				
 			</div>
 	</div>
