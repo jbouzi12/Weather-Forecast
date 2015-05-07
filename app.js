@@ -72,11 +72,11 @@ angular.module("weatherApp", ['ngRoute', 'ngResource'])
 	var self = this;
 	self.city = cityService.city;
 
-	$scope.$watch('city', function() {
+	// $scope.$watch('city', function() {
 
-		cityService.city = self.city;
+	// 	cityService.city = self.city;
 	
-	});
+	// });
 
 	// this.searchCity = function(new_city) {
 	// 	cityService.city = new_city;
