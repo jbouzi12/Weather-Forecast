@@ -21,8 +21,10 @@ Days<a ng-repeat="duration in forecastCtrl.options" href="#/forecast/{{duration}
 	<div class="col">
 		<div class="col-sm-6 col-md-4">
 			<div class="thumbnail">
-				<img src="http://openweathermap.org/img/w/{{w.weather[0].icon}}" />
-				<div class="caption">
+				<img class="wIcon" src="imgs/{{forecastCtrl.weatherIcons['d10']}}" />
+				<!-- {{ typeof "w.weather[0].icon "}} -->
+				
+				 <div class="caption">
 
 						<h2 class="left temp">
 							{{ forecastCtrl.convertToFahrenheit(w.temp.day) }}<span>&deg;</span>

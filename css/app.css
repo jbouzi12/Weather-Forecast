@@ -55,3 +55,7 @@ body {
 	margin-top: -.2em;
 	color: rgba(32, 203, 255, 0.75);
 }
+.wIcon {
+	width: 50%;
+	height: 50%;
+}
