@@ -17,19 +17,19 @@ angular.module("weatherApp", ['ngRoute', 'ngResource'])
 	.when('/', {
 		templateUrl:"views/home.html",
 		controller:"homeController",
-		controllerAs:"home"
+		controllerAs:"homeCtrl"
 
 	})
 	.when('/forecast', {
 		templateUrl:"views/forecast.html",
 		controller:"forecastController",
-		controllerAs:"forecast"
+		controllerAs:"forecastCtrl"
 
 	})
 	.when('/forecast/:days', {
 		templateUrl:"views/forecast.html",
 		controller:"forecastController",
-		controllerAs:"forecast"
+		controllerAs:"forecastCtrl"
 	})
 	.otherwise({
 		redirectTo:'/'
@@ -68,21 +68,22 @@ angular.module("weatherApp", ['ngRoute', 'ngResource'])
 
 .controller('homeController', ['$scope', '$location', 'cityService', function($scope, $location, cityService) {
 
-	 // TODO: may need to remove city service, seems unnecessary
-	var self = this;
-	self.city = cityService.city;
+	 // TODO: Convert to use 'Controller as' convention
+	$scope.city = cityService.city;
+	// var self = this;
+	// self.city = 'New York, NY';
 
-	// $scope.$watch('city', function() {
+	// self.updateCity = function(newCity) {
+	// 	self.city = newCity;
+	// }
 
-	// 	cityService.city = self.city;
+	$scope.$watch('city', function() {
+
+		cityService.city = $scope.city;
 	
-	// });
+	});
 
-	// this.searchCity = function(new_city) {
-	// 	cityService.city = new_city;
-	// };
-
-	this.getForecast = function() {
+	$scope.getForecast = function() {
 		$location.path("/forecast");
 	}
 

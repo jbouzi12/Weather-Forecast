@@ -1,10 +1,10 @@
 <a href="#/">Back to search</a>
 <h2>
-Forecast for {{ forecast.city }}
+Forecast for {{ forecastCtrl.city }}
 
 </h2>
 <hr />
-Days<a ng-repeat="duration in forecast.options" href="#/forecast/{{duration}}">: {{ duration }} </a>  
+Days<a ng-repeat="duration in forecastCtrl.options" href="#/forecast/{{duration}}">: {{ duration }} </a>  
 
 
 <!-- TODO: -->
@@ -20,7 +20,7 @@ Days<a ng-repeat="duration in forecast.options" href="#/forecast/{{duration}}">:
 
 </section>
  -->
-<section ng-repeat="w in forecast.weatherResult.list">
+<section ng-repeat="w in forecastCtrl.weatherResult.list">
 	<div class="col">
 		<div class="col-sm-6 col-md-4">
 			<div class="thumbnail">
@@ -28,13 +28,13 @@ Days<a ng-repeat="duration in forecast.options" href="#/forecast/{{duration}}">:
 				<div class="caption">
 
 						<h2 class="left temp">
-							{{ forecast.convertToFahrenheit(w.temp.day) }}<span>&deg;</span>
+							{{ forecastCtrl.convertToFahrenheit(w.temp.day) }}<span>&deg;</span>
 							<p id="sub">{{ w.weather[0].description }}</p>
 						</h2>
 					<h3>
-						<!-- <p>{{forecast.formatDate(w.dt) | date:'MMM' }}</p> -->
-						{{ forecast.formatDate(w.dt) | date:'dd' }}
-						<p>{{ forecast.formatDate(w.dt) | date: 'EEE' }}</p>
+						<!-- <p>{{forecastCtrl.formatDate(w.dt) | date:'MMM' }}</p> -->
+						{{ forecastCtrl.formatDate(w.dt) | date:'dd' }}
+						<p>{{ forecastCtrl.formatDate(w.dt) | date: 'EEE' }}</p>
 					</h3> 
 				</div>
 					<!-- <p>Day: {{ forecast.convertToFahrenheit(w.temp.day) }}<span>&deg;</span></p> -->
