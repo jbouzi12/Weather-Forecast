@@ -72,7 +72,6 @@ angular.module("weatherApp", ['ngRoute', 'ngResource'])
 
 			geocoder.geocode({'address':city}, function(results, status) {
 				if (status == google.maps.GeocoderStatus.OK) {
-					// marker.position = results[0].geometry.location;
 					map.setCenter(results[0].geometry.location);
 
 				} else {
