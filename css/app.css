@@ -3,7 +3,7 @@ html, body, input, select, textarea {
 }
 
 body {
-	/*background-image: url('../imgs/sunny-sunset.jpg');*/
+	background-image: url('../imgs/beach-wallpaper.jpg');
 	background-size: cover;
 	background-repeat: none;
 }
