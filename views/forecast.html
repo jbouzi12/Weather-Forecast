@@ -8,15 +8,9 @@ Days<a ng-repeat="duration in forecastCtrl.options" href="#/forecast/{{duration}
 
 
 <hr />
-<!-- <div>
-	
-	{{ sampleChart }}
-</div> -->
 
-<!-- <section id="map-canvas">
+<city-map></city-map>
 
-</section>
- -->
 <section ng-repeat="w in forecastCtrl.weatherResult.list">
 	<div class="col">
 		<div class="col-sm-6 col-md-4">
