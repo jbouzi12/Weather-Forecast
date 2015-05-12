@@ -53,8 +53,8 @@ angular.module("weatherApp", ['ngRoute', 'ngResource'])
 			
 			var mapOptions = {
 				center: myLatLng,
-				zoom: 8,
-				mapTypeId: google.maps.MapTypeId.SATELLITE
+				zoom: 12,
+				mapTypeId: google.maps.MapTypeId.TERRAIN
 			};
 			
 			var map = new google.maps.Map(document.getElementById(attrs.id), mapOptions);

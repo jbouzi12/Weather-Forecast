@@ -8,9 +8,10 @@ body {
 	background-repeat: none;
 }
 #map-canvas {
-	height: 400px;
-	width: 700px;
-	border: 2px solid red;	
+	height: 22em;
+	width: 40em;
+	border: 2px solid white;	
+	margin-bottom: 3em;
 }
 #heading {
 	background-color: rgba(255, 255, 249, 0.45);
