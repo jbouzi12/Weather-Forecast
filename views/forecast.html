@@ -3,13 +3,13 @@
 Forecast for {{ forecastCtrl.city }}
 
 </h2>
+<center><city-map id="map-canvas"></city-map></center>
 <hr />
 Days<a ng-repeat="duration in forecastCtrl.options" href="#/forecast/{{duration}}">: {{ duration }} </a>  
 
 
 <hr />
 
-<city-map id="map-canvas"></city-map>
 
 <section ng-repeat="w in forecastCtrl.weatherResult.list">
 	<div class="col">
