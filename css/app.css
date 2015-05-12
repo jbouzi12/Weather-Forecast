@@ -7,7 +7,11 @@ body {
 	background-size: cover;
 	background-repeat: none;
 }
-
+#map-canvas {
+	height: 400px;
+	width: 700px;
+	border: 2px solid red;	
+}
 #heading {
 	background-color: rgba(255, 255, 249, 0.45);
 	border: none;
