@@ -47,12 +47,25 @@ angular.module("weatherApp", ['ngRoute', 'ngResource'])
 		restrict:'E',
 		template:"<div></div>",
 		replace: true,
-		link: function(scope, element, attr) {
+		link: function(scope, element, attrs) {
+			
+			var myLatLng = new google.maps.LatLng(40.75058, -73.99358);
+			
 			var mapOptions = {
-				center: new google.maps.LatLng(-34.397, 150.644),
-				zoom: 8
+				center: myLatLng,
+				zoom: 8,
+				mapTypeId: google.maps.MapTypeId.SATELLITE
 			};
-			var map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
+			
+			var map = new google.maps.Map(document.getElementById(attrs.id), mapOptions);
+
+			var marker = new google.maps.Marker({
+			    position: myLatlng,
+			    map: map,
+			    title: 'Forecast Location'
+		    });
+
+		    marker.setMap(map)
 		}
 
 	};
