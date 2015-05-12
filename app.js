@@ -1,16 +1,12 @@
 // MODULE
 
 // TODO:
-// - Create method for celcius conversion
 // - Use ng-show/ng-click for 'f'&'c' buttons
-// - create factory to serve as directory of weather images
-	// - based on clouds '#' of forecast, 
-	// 	 return that specific url for thumbnail
 // - Add min/max temperature
 
 angular.module("weatherApp", ['ngRoute', 'ngResource'])
 
-.config(function($routeProvider) {
+.config(['$routeProvider', function($routeProvider) {
 
 	$routeProvider
 
@@ -34,13 +30,28 @@ angular.module("weatherApp", ['ngRoute', 'ngResource'])
 	.otherwise({
 		redirectTo:'/'
 	})
-})
+}])
 
 // Services
 
 .service('cityService', function() {
 
 	this.city = "New York, NY";
+
+})
+
+.directive('cityMap', function() {
+
+	return {
+
+		restrict:'E',
+		template:"<div></div>",
+		replace: true,
+		link: function(scope, element, attr) {
+			
+		}
+
+	};
 
 })
 
@@ -55,12 +66,6 @@ angular.module("weatherApp", ['ngRoute', 'ngResource'])
 			return weatherAPI.get( { q:city, cnt: days, APPID: apiKey})
 		}
 	};		
-	// TESTING CHART
-
-	// $scope.jsonurl = $resource("http://openweathermap.org/data/2.1/history/city/?id=524901&cnt=80", {
-	// 	callback:"JSON_CALLBACK"}, {get:{method:"JSONP"}});
-
-	// $scope.sampleChart = $scope.jsonurl.get(jsonurl, getData).error(errorHandler);
 
 }])
 
@@ -90,14 +95,7 @@ angular.module("weatherApp", ['ngRoute', 'ngResource'])
 
 .controller('homeController', ['$scope', '$location', 'cityService', function($scope, $location, cityService) {
 
-	 // TODO: Convert to use 'Controller as' convention
 	$scope.city = cityService.city;
-	// var self = this;
-	// self.city = 'New York, NY';
-
-	// self.updateCity = function(newCity) {
-	// 	self.city = newCity;
-	// }
 
 	$scope.$watch('city', function() {
 
@@ -129,6 +127,7 @@ angular.module("weatherApp", ['ngRoute', 'ngResource'])
 	self.weatherResult = weatherForecast.getWeather(self.city, self.days)
 
 	console.log(self.weatherResult);
+
 	// Conversion & Formatting functions
 
 	self.reverse = function(s) {
