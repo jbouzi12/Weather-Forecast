@@ -48,7 +48,12 @@ angular.module("weatherApp", ['ngRoute', 'ngResource'])
 		template:"<div></div>",
 		replace: true,
 		link: function(scope, element, attrs) {
-			
+
+			var city = scope.forecastCtrl.city;
+
+			var geocoder = new google.maps.Geocoder();
+
+
 			var myLatLng = new google.maps.LatLng(40.75058, -73.99358);
 			
 			var mapOptions = {
@@ -60,12 +65,26 @@ angular.module("weatherApp", ['ngRoute', 'ngResource'])
 			var map = new google.maps.Map(document.getElementById(attrs.id), mapOptions);
 
 			var marker = new google.maps.Marker({
-			    position: myLatlng,
+			    position: myLatLng,
 			    map: map,
 			    title: 'Forecast Location'
 		    });
 
-		    marker.setMap(map)
+			geocoder.geocode({'address':city}, function(results, status) {
+				if (status == google.maps.GeocoderStatus.OK) {
+					// marker.position = results[0].geometry.location;
+					map.setCenter(results[0].geometry.location);
+
+				} else {
+
+					alert('error');
+
+				}
+			});
+
+
+
+		    marker.setMap(map);
 		}
 
 	};
