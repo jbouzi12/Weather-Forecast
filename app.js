@@ -150,18 +150,20 @@ angular.module("weatherApp", ['ngRoute', 'ngResource', 'ngAnimate'])
 
 	self.city = cityService.city;
 
-	self.isF = true;
+
+	// self.isF = true;
 
 	self.days = $routeParams.days || '2';
 
 	self.options = ['2', '5', '7'];
 	self.weatherIcons = weatherIcons;
 
-	console.log(self.weatherIcons);
-
 	self.weatherResult = weatherForecast.getWeather(self.city, self.days)
 
-	console.log(self.weatherResult);
+	self.getIcon = function(icon) {
+		return self.weatherIcons[icon];
+	}
+	// console.log(self.weatherResult);
 
 	// Conversion & Formatting functions
 

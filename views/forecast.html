@@ -11,11 +11,11 @@ Days<a ng-repeat="duration in forecastCtrl.options" href="#/forecast/{{duration}
 <hr />
 
 
-<section ng-repeat="w in forecastCtrl.weatherResult.list">
+<section ng-repeat="w in forecastCtrl.weatherResult.list" ng-animte="'animate'">
 	<div class="col">
 		<div class="col-sm-6 col-md-4">
 			<div class="thumbnail">
-				<img class="wIcon" src="imgs/{{forecastCtrl.weatherIcons['d10']}}" />
+				<img class="wIcon" src="imgs/{{forecastCtrl.getIcon(w.weather[0].icon)}}" />
 				<!-- {{ typeof "w.weather[0].icon "}} -->
 				
 				 <div class="caption">
