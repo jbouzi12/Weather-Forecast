@@ -4,7 +4,7 @@
 // - Use ng-show/ng-click for 'f'&'c' buttons
 // - Add min/max temperature
 
-angular.module("weatherApp", ['ngRoute', 'ngResource'])
+angular.module("weatherApp", ['ngRoute', 'ngResource', 'ngAnimate'])
 
 .config(['$routeProvider', function($routeProvider) {
 
