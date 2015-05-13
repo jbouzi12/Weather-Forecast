@@ -106,7 +106,7 @@ angular.module("weatherApp", ['ngRoute', 'ngResource', 'ngAnimate'])
 
 .factory('weatherIcons', function weatherIconsFactory() {
 	return {
-		'0d1':"01d.png",
+		'01d':"01d.png",
 		'02d':"02d.png",
 		'03d':"03d.png",
 		'04d':"04d.png",
@@ -163,7 +163,7 @@ angular.module("weatherApp", ['ngRoute', 'ngResource', 'ngAnimate'])
 	self.getIcon = function(icon) {
 		return self.weatherIcons[icon];
 	}
-	// console.log(self.weatherResult);
+	console.log(self.weatherResult);
 
 	// Conversion & Formatting functions
 
