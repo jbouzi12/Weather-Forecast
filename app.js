@@ -106,23 +106,23 @@ angular.module("weatherApp", ['ngRoute', 'ngResource', 'ngAnimate'])
 
 .factory('weatherIcons', function weatherIconsFactory() {
 	return {
-		d10:"01d.png",
-		d20:"02d.png",
-		d30:"03d.png",
-		d40:"04d.png",
-		d90:"09d.png",
-		d01:"09d.png",
-		d11:"11d.png",
-		d31:"13d.png",
-		d05:"50d.png",
-		n10:"01n.png",
-		n20:"02n.png",
-		n40:"02n.png",
-		n90:"09d.png",
-		n01:"09d.png",
-		n11:"11d.png",
-		n31:"13d.png",
-		n05:"50n.png"
+		'0d1':"01d.png",
+		'02d':"02d.png",
+		'03d':"03d.png",
+		'04d':"04d.png",
+		'09d':"09d.png",
+		'10d':"09d.png",
+		'11d':"11d.png",
+		'13d':"13d.png",
+		'50d':"50d.png",
+		'01n':"01n.png",
+		'02n':"02n.png",
+		'04n':"02n.png",
+		'09d':"09d.png",
+		'10n':"09d.png",
+		'11n':"11d.png",
+		'13n':"13d.png",
+		'50n':"50n.png"
 	};
 })
 
