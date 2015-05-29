@@ -3,7 +3,6 @@ html, body, input, select, textarea {
 }
 
 body {
-	/*background-image: url('../imgs/beach-wallpaper.jpg');*/
 	background-color: rgba(2, 43, 92, 0.58);
 	background-size: cover;
 	background-repeat: none;
