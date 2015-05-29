@@ -11,7 +11,7 @@ Days<a ng-repeat="duration in forecastCtrl.options" href="#/forecast/{{duration}
 <hr />
 
 
-<section ng-repeat="w in forecastCtrl.weatherResult.list" ng-animte="'animate'">
+<section ng-animate="'animate'"ng-repeat="w in forecastCtrl.weatherResult.list">
 	<div class="col">
 		<div class="col-sm-6 col-md-4">
 			<div class="thumbnail">

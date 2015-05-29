@@ -10,6 +10,12 @@ body {
 .container.home a{
 	color: white;
 }
+main {
+	-webkit-transition: all .5s ease-in-out 0s;
+	-moz-transition: all .5s ease-in-out 0s;
+	-o-transition: all .5s ease-in-out 0s;
+	transition: all .5s ease-in-out 0s;
+}
 #map-canvas {
 	height: 22em;
 	width: 40em;
