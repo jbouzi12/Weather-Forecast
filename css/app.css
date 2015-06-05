@@ -10,11 +10,18 @@ body {
 .container.home a{
 	color: white;
 }
-main {
-	-webkit-transition: all .5s ease-in-out 0s;
-	-moz-transition: all .5s ease-in-out 0s;
-	-o-transition: all .5s ease-in-out 0s;
-	transition: all .5s ease-in-out 0s;
+.home.results {
+	-webkit-transition: all .5s ease-out 0s;
+	-moz-transition: all .5s ease-out 0s;
+	-o-transition: all .5s ease-out 0s;
+	transition: all .5s ease-out 0s;
+}
+
+.home {
+	-webkit-transition: all 0.15s ease-in-out 0s;
+	-moz-transition: all 0.15s ease-in-out 0s;
+	-o-transition: all 0.15s ease-in-out 0s;
+	transition: all 0.15s ease-in-out 0s;
 }
 #map-canvas {
 	height: 22em;
@@ -50,7 +57,7 @@ main {
 	font-size: 3.5em;
 	margin-left: .5em;
 	margin-right: 1em;
-	color: (0, 0, 0, 0.25) !important;
+	color: rgba(0, 0, 0, 0.25) !important;
 }
 .left.temp span {
 	color: rgba(32, 203, 255, 0.42);
@@ -72,29 +79,4 @@ main {
 .wIcon {
 	width: 50%;
 	height: 50%;
-}
-.animate-enter, 
-.animate-leave
-{ 
-  -webkit-transition: 400ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
-  -moz-transition: 400ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
-  -ms-transition: 400ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
-  -o-transition: 400ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
-  transition: 400ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
-  position: relative;
-  display: block;
-} 
- 
-.animate-enter.animate-enter-active, 
-.animate-leave {
-  opacity: 1;
-  top: 0;
-  height: 30px;
-}
- 
-.animate-leave.animate-leave-active,
-.animate-enter {
-  opacity: 0;
-  top: -50px;
-  height: 0px;
 }
